@@ -23,7 +23,7 @@ import Layout from '../layouts/Layout.astro'
 </style>
 
 <script>
-  import { init } from '@aptabase/web'
-  init(import.meta.env.PUBLIC_APTABASE_APP_KEY, { isDebug: import.meta.env.DEV })
+  import { trackEvent } from '@aptabase/web'
   // TODO: add events en el calendario
+  trackEvent('page_view', { page: 'home' })
 </script>
