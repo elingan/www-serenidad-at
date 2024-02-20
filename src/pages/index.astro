@@ -20,5 +20,10 @@ import Layout from '../layouts/Layout.astro'
     line-height: 1.6;
     text-align: center;
   }
-
 </style>
+
+<script>
+  import { init } from '@aptabase/web'
+  init(import.meta.env.PUBLIC_APTABASE_APP_KEY, { isDebug: import.meta.env.DEV })
+  // TODO: add events en el calendario
+</script>
