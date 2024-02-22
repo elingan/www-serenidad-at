@@ -7,43 +7,61 @@ const { title } = Astro.props
 ---
 
 <!doctype html>
-<html lang='en'>
+<html class='no-js' lang='en'>
   <head>
-    <meta charset='UTF-8' />
-    <meta name='description' content='Astro description' />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='generator' content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <slot />
-  </body>
-</html>
-<style is:global>
-  :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
-  }
-  html {
-    font-family: system-ui, sans-serif;
-  }
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100dvh;
-    background: var(--accent-gradient);
-    color: rgb(var(--accent-dark));
-    /* background: white;
-		*/
-    /* height: 100dvh; */
-  }
-</style>
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset='utf-8' />
+    <title>Imminent - Static</title>
+    <meta name='description' content='' />
+    <meta name='author' content='' />
 
-<script>
-  import { init } from '@aptabase/web'
-  init(import.meta.env.PUBLIC_APTABASE_APP_KEY, { isDebug: import.meta.env.DEV })
-  // TODO: add events en el calendario
-</script>
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+
+    <!-- CSS
+    ================================================== -->
+    <link rel='stylesheet' href='css/base.css' />
+    <link rel='stylesheet' href='css/vendor.css' />
+    <link rel='stylesheet' href='css/main.css' />
+
+    <!-- script
+    ================================================== -->
+    <script is:inline src='js/modernizr.js'></script>
+    <script is:inline defer src='js/fontawesome/all.min.js'></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel='apple-touch-icon' sizes='180x180' href='apple-touch-icon.png' />
+    <link rel='icon' type='image/png' sizes='32x32' href='favicon-32x32.png' />
+    <link rel='icon' type='image/png' sizes='16x16' href='favicon-16x16.png' />
+    <!-- <link rel='manifest' href='site.webmanifest' /> -->
+  </head>
+
+  <body id='top'>
+    <!-- preloader
+    ================================================== -->
+    <div id='preloader'>
+      <div id='loader' class='dots-fade'>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <slot />
+
+    <!-- Java Script
+    ================================================== -->
+    <script is:inline src='js/jquery-3.2.1.min.js'></script>
+    <script is:inline src='js/plugins.js'></script>
+    <script is:inline src='js/main.js'></script>
+  </body>
+
+  <script>
+    import { init } from '@aptabase/web'
+    init(import.meta.env.PUBLIC_APTABASE_APP_KEY, { isDebug: import.meta.env.DEV })
+    // TODO: add events en el calendario
+  </script>
+</html>
